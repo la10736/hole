@@ -1,0 +1,15 @@
+#:kivy 1.0.9
+
+<Ball>:
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<HoleGame>:
+    ball: ball_id
+
+    Ball:
+        id: ball_id
+        center: self.parent.center
+        size: 40, 40
