@@ -1,5 +1,11 @@
 #:kivy 1.0.9
 
+<Hole>:
+    canvas:
+        Line:
+            circle: self.center_x, self.center_y, self.width/2
+            width: 3
+
 <Ball>:
     canvas:
         Ellipse:
@@ -8,8 +14,22 @@
 
 <HoleGame>:
     ball: ball_id
+    hole: hole_id
 
     Ball:
         id: ball_id
         center: self.parent.center
         size: 40, 40
+
+
+    Hole:
+        id: hole_id
+        size: 44, 44
+
+    Label:
+        font_size: 70
+        center_x: root.width / 4
+        top: root.top - 50
+        text: str(0)
+        text: str(root.score)
+

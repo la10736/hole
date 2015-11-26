@@ -86,7 +86,30 @@ Il **`Widget`** è l'elemento grafico di kivy piè semplice: tutti gli elementi 
 Dove mettiamo il dito spostiamo la pallina. Agganciare la property `ball` a `HoleGame` con l'id nel 
 file `kw`. Ora che abbiamo la palla ad ogni `o_touch_down`spostiamo il `ball.center` in `touch.pos`.
 
-### Esecizio
+### Esercizio
 
 1. Quando rilasciamo (`on_touch_up`) deve tornare al centro
-2.Facciamolo seguirenel trascinamento (`on_touch_move`)
+2. Trasciniamolo (`on_touch_move`)
+
+## Muoviamo la palla
+
+Ora animiamo la pallina e muoviamola. Per fare questo la pallina deve avere una velocità e una funzione `move`
+che ogni volta che viene chiamata sposta la pallina della velocità. Chiammiamo `move()` ad ogni 
+`on_touch_down()`.
+
+Costruiamo un *orologio* e facciamo muovere la palla 60 volte alsecondo.
+
+Rimbalzare prima bordi laterali e poi sopra e sotto.
+
+## Cambiamo la velocità
+
+Ora quando clickiamo cambiamo la velocità e non la posizione.
+
+## La buca
+
+Creiamo una buca in un posto casuale nella parte sinistra della tavolo da gioco.
+
+
+## Buca Segniamo un punto
+
+Qundo la palla è in buca stampiamo in buca
