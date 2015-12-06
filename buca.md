@@ -100,11 +100,16 @@ Da `Ball` **togliamo** `on_touch_down()` e tutto il suo contenuto; dentro `class
 
 Provate e vedete cosa viene scritto.... `hole` e sempre fermo, ma `ball` si sposta.
 
-Facciamo ora un altro piccolo passo: facciamo stamapare anche la distanza tra i due centri con 
+Facciamo ora un altro piccolo passo: facciamo stamapare anche la distanza tra i due centri usando 
 
 ```python
 distance = Vector(*self.hole.center).distance(self.ball.center)
 print("distance = " + str(distance))
+```
+
+.... **dimenticavo** per usare `Vector` bisogna aggiungere in alto 
+```python
+from kivy.vector import Vector
 ```
 
 Ora abbiamo tutto per scrivere una funzione in `HoleGame` che dice se la palla è in buca:
@@ -125,3 +130,31 @@ e cambiamo `on_touch_down()` per farci stampare questa verifica
 ```
 
 Ora potete verificare se la vostra palla entra in buca.
+
+## Palla in Buca, la buca si sposta.
+
+Ora vogliamo che tutte le volte che la palla è in buca la buca viene spostata. Vogliamo spostarla in un posto a caso
+dello schermo di gioco. Per avere un numero a caso usiamo il solito `random.randint()` che prende il valore minimo
+e il valore massimo. Se noi spostiamo `x` e `y` della buca dobbiamo fare in mdo che non siamo mai troppo grandi da far 
+uscire la buca dal campo: Aggiungiamo quindi a `HoleGame` una funzione per piazzare la buca a caso
+
+```python
+    def random_hole(self):
+        self.hole.x = random.randint(0, self.width - self.hole.width)
+        self.hole.y = random.randint(0, self.height - self.hole.height)
+```
+
+Per usare `random` aggiungiamo in alto 
+
+```python
+import random
+```
+
+E `on_touch_down()` diventa
+
+```python
+   def on_touch_down(self, touch):
+       self.ball.center = touch.pos
+       if self.ball_in_hole():
+           self.random_hole()
+```
