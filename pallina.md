@@ -55,7 +55,7 @@ dal nome il finale `App` si mette tutto minuscolo e si aggiunge `.kv`, questo fi
 
 ## La Pallina
 
-Per aggingere la pallina dobbiamo inserire nel file `hole.kv` un nuovo personaggio, la pallina, e dire in che possizione
+Per aggingere la pallina dobbiamo inserire nel file `hole.kv` un nuovo personaggio, la pallina, e dire in che posizione
 mettrla nel gioco `HoleGame` e poi indicare come disegnarla
 
 ```
@@ -77,7 +77,7 @@ Proviamo: ... ops
  kivy.factory.FactoryException: Unknown class <Ball>
 ```
 
-Ci dice che non conosce la `calss <Ball>`. Bene caccontetiamolo, creaimo una `class Ball`, essendo qualcosa da mettere 
+Ci dice che non conosce la `class <Ball>`. Bene accontetiamolo, creaimo una `class Ball`, essendo qualcosa da mettere 
 sullo schermo deve essere almeno un `Widget`... troppe parole: Aggiugiamo a `main.py`
 
 ```python
