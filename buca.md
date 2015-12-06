@@ -45,9 +45,83 @@ Ora proviamo a far partire ... Come era successo per la palla non avviene nulla:
 
 ## La Palla in Buca 
 
-Sia la pallina he la buca hanno le questi campi:
+Per vedere se la pallina *finisce in buca* ci basta guardare se i centri di buca e pallina sono abbastanza *vicini*
 
-* `x`
-* `y`
-* `right`
-* `top`
+![In Buca](in_hole.png)
+
+Quindi se la disatnza del centro della pallina `P` dal centro della buca `B` è minore della distanza `d` allora la palla 
+è in buca. La disatnza di `d` è uguale al raggio della buca meno il raggio della palla.
+
+Quello che ci manca ora è da `HoleGame` sapere dove si trovano la palla e la buca. Per collegare gli attori *kivy* usa
+le `ObjectProperty`. Nel file `main.py` in alto mettimao
+
+```python
+from kivy.properties import ObjectProperty
+```
+
+e nella classe `HoleGame` aggiungiamo i due oggetti:
+
+```python
+class HoleGame(Widget):
+    ball = ObjectProperty(None)
+    hole = ObjectProperty(None)
+```
+
+E modifichiamo `<HoleGame>` in `hole.kv` come segue:
+
+```
+<HoleGame>:
+    hole: hole_id
+    ball: ball_id
+
+    Hole:
+        id: hole_id
+        center: root.width/6, root.center_y
+        size: 80, 80
+
+    Ball:
+        id: ball_id
+        center: root.center
+        size: 40, 40
+```
+
+Ora se eseguiamo tutto è come prima, ma dentro a `HoleGame` possiamo sapere dove sono i centri di `ball` e `hole`. Per
+verificarlo Invece di spostare la palla dentro a `Ball` la spostiamo da `HoleGame` e facciamo anche stampare le
+coordinate dei centri.
+
+Da `Ball` **togliamo** `on_touch_down()` e tutto il suo contenuto; dentro `class HoleGame` aggiungiamo
+
+```python
+    def on_touch_down(self, touch):
+        self.ball.center = touch.pos
+        print("ball = " + str(self.ball.center))
+        print("hole = " + str(self.hole.center))
+```
+
+Provate e vedete cosa viene scritto.... `hole` e sempre fermo, ma `ball` si sposta.
+
+Facciamo ora un altro piccolo passo: facciamo stamapare anche la distanza tra i due centri con 
+
+```python
+distance = Vector(*self.hole.center).distance(self.ball.center)
+print("distance = " + str(distance))
+```
+
+Ora abbiamo tutto per scrivere una funzione in `HoleGame` che dice se la palla è in buca:
+
+```python
+    def ball_in_hole(self):
+        distance = Vector(*self.hole.center).distance(self.ball.center)
+        max_distance = ((self.hole.width - self.ball.width) / 2)
+        return distance < max_distance
+```
+
+e cambiamo `on_touch_down()` per farci stampare questa verifica
+
+```python
+    def on_touch_down(self, touch):
+        self.ball.center = touch.pos
+        print("ball_in_hole = " + str(self.ball_in_hole()))
+```
+
+Ora potete verificare se la vostra palla entra in buca.
