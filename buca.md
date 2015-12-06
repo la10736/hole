@@ -158,3 +158,87 @@ E `on_touch_down()` diventa
        if self.ball_in_hole():
            self.random_hole()
 ```
+
+
+Per riassumere:
+
+`main.py`
+```python
+import random
+from kivy.app import App
+from kivy.uix.widget import Widget
+from kivy.vector import Vector
+from kivy.properties import ObjectProperty
+
+
+class Hole(Widget):
+    pass
+
+
+class Ball(Widget):
+    def on_touch_move(self, touch):
+        self.center = touch.pos
+
+    def on_touch_up(self, touch):
+        self.center = self.parent.center
+
+
+class HoleGame(Widget):
+    hole = ObjectProperty(None)
+    ball = ObjectProperty(None)
+
+    def on_touch_down(self, touch):
+        self.ball.center = touch.pos
+        if self.ball_in_hole():
+            self.random_hole()
+
+    def random_hole(self):
+        self.hole.x = random.randint(0, self.width - self.hole.width)
+        self.hole.y = random.randint(0, self.height - self.hole.height)
+
+    def ball_in_hole(self):
+        distance = Vector(*self.hole.center).distance(self.ball.center)
+        max_distance = ((self.hole.width - self.ball.width) / 2)
+        return distance < max_distance
+
+
+class HoleApp(App):
+    def build(self):
+        game = HoleGame()
+        return game
+
+
+if __name__ == '__main__':
+    HoleApp().run()
+```
+
+`hole.kv`
+```
+#:kivy 1.0.9
+
+<Hole>:
+    canvas:
+        Line:
+            width: 3
+            circle: self.center_x, self.center_y, self.width/2
+
+<Ball>:
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<HoleGame>:
+    hole: hole_id
+    ball: ball_id
+
+    Hole:
+        id: hole_id
+        center: root.width/6, root.center_y
+        size: 80, 80
+
+    Ball:
+        id: ball_id
+        center: root.center
+        size: 40, 40
+```
