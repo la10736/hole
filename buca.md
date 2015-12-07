@@ -160,7 +160,7 @@ E `on_touch_down()` diventa
 ```
 
 
-Per riassumere:
+Per riassumere il gioco ora dovrebbe essere circa così:
 
 `main.py`
 ```python
