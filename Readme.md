@@ -15,6 +15,7 @@ e la buca viene spostata a caso in un altro punto
 1. Usare il *Computer nel Computer* e collegare il telefonino/tablet
 2. Aprire il progetto *ninja_hole* e eseguirlo prima sul computer e poi sul telefonino/tablet
 3. [Aggiungere la pallina e spostarla con il dito](pallina.md)
-4. Aggiungere la Buca e il punteggio
-5. Guidare la pallina
-6. La molla invisibile
+4. [La Buca](buca.md)
+5. [Guidare la pallina che rimbalza sui bordi](muovi_palla.md)
+6. [Punteggio](punteggio.md)
+7. [La molla invisibile](molla.md)
