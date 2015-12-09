@@ -120,7 +120,6 @@ import random
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.vector import Vector
-from kivy.properties import ObjectProperty
 from kivy.properties import NumericProperty
 from kivy.clock import Clock
 
@@ -130,8 +129,8 @@ class Hole(Widget):
 
 
 class Ball(Widget):
-    velocity_x = NumericProperty(0)
-    velocity_y = NumericProperty(0)
+    velocity_x = 0
+    velocity_y = 0
 
     def move(self):
         self.pos = Vector(self.velocity_x, self.velocity_y) + self.pos
@@ -146,8 +145,8 @@ class Ball(Widget):
 class HoleGame(Widget):
     spring = None
     score = NumericProperty(0)
-    hole = ObjectProperty(None)
-    ball = ObjectProperty(None)
+    hole = None
+    ball = None
 
     def update(self, dt):
         strength = self.spring_strength()

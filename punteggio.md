@@ -28,7 +28,19 @@ Aggiungiamo una scritta in alto con scritto `"pippo"`. Ci basta modificare solo 
 
 ## Creiamo il punteggio
 
-Nella classe `HoleGame` aggiungiamo una `NumericProperty` chiamata `score`
+Per poter gestire automaticamente il collegamento tra il cambio di un valore e il suo effetto kivy fornisce le  
+`Property`, in particolare per i numeri le `NumericProperty`. Queste proprietà possono essere usate nei personaggi
+per mantenere un valore e nei file `.kv` per usarlo con un effetto di aggiornamento automatico.
+
+Una prova pratica è meglio di mille parole:
+
+Prima di tutto dobbiamo dire nel programma che vogliamo usarle aggiungendo in alto
+
+```python
+from kivy.properties import NumericProperty
+```
+
+Nella classe `HoleGame` aggiungiamo una `NumericProperty` chiamata `score` (punteggio)
 
 ```python
 class HoleGame(Widget):

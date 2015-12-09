@@ -52,19 +52,13 @@ Per vedere se la pallina *finisce in buca* ci basta guardare se i centri di buca
 Quindi se la disatnza del centro della pallina `P` dal centro della buca `B` è minore della distanza `d` allora la palla 
 è in buca. La disatnza di `d` è uguale al raggio della buca meno il raggio della palla.
 
-Quello che ci manca ora è da `HoleGame` sapere dove si trovano la palla e la buca. Per collegare gli attori *kivy* usa
-le `ObjectProperty`. Nel file `main.py` in alto mettimao
-
-```python
-from kivy.properties import ObjectProperty
-```
-
-e nella classe `HoleGame` aggiungiamo i due oggetti:
+Quello che ci manca ora è da `HoleGame` sapere dove si trovano la palla e la buca. Per fare questo definiamo i due 
+attori nella classe `HoleGame`:
 
 ```python
 class HoleGame(Widget):
-    ball = ObjectProperty(None)
-    hole = ObjectProperty(None)
+    ball = None
+    hole = None
 ```
 
 E modifichiamo `<HoleGame>` in `hole.kv` come segue:
@@ -168,7 +162,6 @@ import random
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.vector import Vector
-from kivy.properties import ObjectProperty
 
 
 class Hole(Widget):
@@ -184,8 +177,8 @@ class Ball(Widget):
 
 
 class HoleGame(Widget):
-    hole = ObjectProperty(None)
-    ball = ObjectProperty(None)
+    hole = None
+    ball = None
 
     def on_touch_down(self, touch):
         self.ball.center = touch.pos

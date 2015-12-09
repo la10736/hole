@@ -84,18 +84,11 @@ Provate, ora funziona tutto come previsto!
 Prima di far rimbalzare la pallina è meglio fare in maniera che si possa cambiare facimente la direzione: non possiamo
 scrivere i numeri fissi, ma è meglio usare qualcosa che possiamo cambiare dal programma.
 
-Per poter gestire facilmente queste cose kivy fornisce i `NumericProperty` che possiamo attaccare ai personaggi. Prima
-dobbiamo dire al programma che vogliamo usarle aggiungendo in alto
-
-```python
-from kivy.properties import NumericProperty
-```
-
 In `Ball` aggiungiamo
 
 ```python
-    velocity_x = NumericProperty(5)
-    velocity_y = NumericProperty(-3)
+    velocity_x = 5
+    velocity_y = -3
 ```
 
 E modifichiamo `move()` per usare `self.velocity_x` al posto di `5` e `self.velocity_y` al posto di `-3`. Gia che
@@ -103,8 +96,8 @@ ci siamo rimuoviamo `on_touch_move()` che non serve più. Rassumendo `Ball` dive
 
 ```python
 class Ball(Widget):
-    velocity_x = NumericProperty(5)
-    velocity_y = NumericProperty(-3)
+    velocity_x = 5
+    velocity_y = -3
 
     def move(self):
         self.pos = Vector(self.velocity_x, self.velocity_y) + self.pos
@@ -186,8 +179,8 @@ Possiamo anche mettere la velocità iniziale a 0:
 
 ```python
 class Ball(Widget):
-    velocity_x = NumericProperty(0)
-    velocity_y = NumericProperty(0)
+    velocity_x = 0
+    velocity_y = 0
 ```
 
 Per riassumere il gioco ora dovrebbe essere circa così:
@@ -198,7 +191,6 @@ import random
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.vector import Vector
-from kivy.properties import ObjectProperty
 from kivy.properties import NumericProperty
 from kivy.clock import Clock
 
@@ -208,8 +200,8 @@ class Hole(Widget):
 
 
 class Ball(Widget):
-    velocity_x = NumericProperty(0)
-    velocity_y = NumericProperty(0)
+    velocity_x = 0
+    velocity_y = 0
 
     def move(self):
         self.pos = Vector(self.velocity_x, self.velocity_y) + self.pos
@@ -222,8 +214,8 @@ class Ball(Widget):
 
 
 class HoleGame(Widget):
-    hole = ObjectProperty(None)
-    ball = ObjectProperty(None)
+    hole = None
+    ball = None
 
     def update(self, dt):
         self.ball.move()
