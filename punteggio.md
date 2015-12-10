@@ -98,3 +98,7 @@ e nel file `kivi.kv` nella descrizione di `<HoleGame>` abbiamo aggiunto
         top: root.top - 50
         text: str(root.score)
 ```
+
+* [**NEXT** Molla](molla.md)
+* [**PREV** Muovi Palla](muovi_palla.md)
+* [**INDEX** Readme](Readme.md)

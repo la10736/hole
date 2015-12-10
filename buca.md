@@ -235,3 +235,7 @@ if __name__ == '__main__':
         center: root.center
         size: 40, 40
 ```
+
+* [**NEXT** Muovi Palla](muovi_palla.md)
+* [**PREV** Pallina](pallina.md)
+* [**INDEX** Readme](Readme.md)

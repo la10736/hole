@@ -251,3 +251,6 @@ Cos'altro possiamo fare?
 5. ....
 
 Ma per ora godiamo questo.
+
+* [**PREV** Punteggio](punteggio.md)
+* [**INDEX** Readme](Readme.md)

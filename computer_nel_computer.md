@@ -52,3 +52,7 @@ controllo di VirtualBox cliccate sull'ingranaggio Impostazioni e selezionate USB
 Cliccate sull'icona dello spinotto USB e poi selezionate il vostro telefonino. Ora fate ripartire il coputer di 
 virtualbox (i tecnici la chiamano *macchina virtuale*) e il vostro telefono dovrebbe aprirsi nel nuovo computer oltre
 che in quello a cui è collegato fisicamente.
+
+* [**NEXT** Progetto Vuoto](progetto_vuoto.md)
+* [**PREV** Readme](Readme.md)
+* [**INDEX** Readme](Readme.md)

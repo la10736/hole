@@ -145,3 +145,7 @@ class Ball(Widget):
     def on_touch_up(self, touch):
         self.center = self.parent.center
 ```
+
+* [**NEXT** Buca](buca.md)
+* [**PREV** Progetto Vuoto](progetto_vuoto.md)
+* [**INDEX** Readme](Readme.md)

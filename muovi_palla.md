@@ -259,3 +259,7 @@ if __name__ == '__main__':
 Mentre `hole.kv` non è cambiato.
 
 ![Palla e buca](palla_e_buca.png)
+
+* [**NEXT** Punteggio](punteggio.md)
+* [**PREV** Buca](buca.md)
+* [**INDEX** Readme](Readme.md)
