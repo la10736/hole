@@ -12,7 +12,7 @@ Come funziona una molla:
 
 Quando un oggetto è attaccato a una molla come ad esempio la nostra pallina rossa nel disegno, allora La pallina viene 
 attratta dal punto in cui la molla è attacata con una forza **F** proporzionalle alla lunghezza **L** (la distanza tra
-la palla e dove la molla è collegata. Per semplificare le cose abbiamo parlato di una molla *ideale* che ha come 
+la palla e dove la molla è collegata). Per semplificare le cose abbiamo parlato di una molla *ideale* che ha come 
 lunghezza minima 0, ma il concetto con le molle reali non cambia molto.
 
 Quindi quello che faremo è:
@@ -40,7 +40,7 @@ lunghezza per avere l'intensità della forza: useremo 0,0005.
 
 ## Aggiorniamo la velocità della palla con la forza della molla
 
-Dobbiamo per prima cosa scrivere una funzione che torna la forza della molla che agisce sulla palla. In `HoleGame`
+Scriviamo una funzione che torna la forza della molla che agisce sulla palla. In `HoleGame`
 aggiungiamo 
 
 ```python
@@ -50,7 +50,7 @@ aggiungiamo
         return strength * 0.0005
 ```
 
-Per aggiornare la velocità della palla ci basta in update aggiungere in fondo:
+Per aggiornare la velocità della palla ci basta modificare `update()` aggiungendo in fondo:
 
 ```python
     def update(self, dt):
@@ -62,8 +62,8 @@ Per aggiornare la velocità della palla ci basta in update aggiungere in fondo:
 
 ## Mettiamo e togliamo la molla
 
-Iniziamo facento in manira che non ci sia nessuna molla in partenza: Dove avevamo messo la posizione `(350, 200)` 
-mettiamo al suoposto `None` che in python vulo dire nulla.
+Iniziamo senza molla: Dove avevamo messo la posizione `(350, 200)` mettiamo al suoposto `None` che in python vuol dire 
+nulla.
 
 ```python
 class HoleGame(Widget):
@@ -244,13 +244,13 @@ Riportiamo anche `hole.kv` per completezza:
 
 Cos'altro possiamo fare? 
 
-1. Potremmo gestire più molle o più tocchi
+1. Potremmo gestire più molle (tocchi) contemporaneamente
 2. Cambiare i colori
 3. Inserire una durata a tempo
 4. Cambiare la dimensione della buca col passare del tempo
 5. ....
 
-Ma per ora godiamo questo.
+Ma per ora godiamoci questo.
 
 * [**PREV** Punteggio](punteggio.md)
 * [**INDEX** Readme](Readme.md)

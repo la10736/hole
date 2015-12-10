@@ -6,7 +6,7 @@ buca scompare e riappare in un altro punto questa volta preso a caso in tutto lo
 ## Il personaggio Buca
 
 Come abbiamo fatto per la pallina prima la aggiungiamo al gioco dandogli coordinate del centro e dimensione. Quindi
-in `hole.kv`, dentro a `<HoleGame>:` e prima di `Ball` mettimao:
+in `hole.kv`, dentro a `<HoleGame>:` e prima di `Ball` mettiamo:
 
 ```
     Hole:
@@ -14,7 +14,7 @@ in `hole.kv`, dentro a `<HoleGame>:` e prima di `Ball` mettimao:
         size: 80, 80
 ```
 
-Anche questa volta quando proviamo a eseguirlo ci dice che non conosce la `class <Hole>`. E come l'altra volta lo 
+Anche questa volta quando proviamo a eseguirlo ci dice che non conosce la `class <Hole>`. E come prima lo 
 accontentiamo aggiungendo a `main.py`
 
 ```python
@@ -41,7 +41,6 @@ Rileggendo: dentro alla tela (`canvas`) abbiamo messo una linea (`Line`) spessa 
 Quando definiamo una linea di tipo cerchio bisogna dire dove è il centro e quanto è lungo il raggio,nel nostro caso
 il centro lo abbiamo messo nel centro della *buca* e il raggio è metà della larghezza della buca.
 
-Ora proviamo a far partire ... Come era successo per la palla non avviene nulla: infatti questo nuovo personaggio
 
 ## La Palla in Buca 
 
@@ -94,7 +93,7 @@ Da `Ball` **togliamo** `on_touch_down()` e tutto il suo contenuto; dentro `class
 
 Provate e vedete cosa viene scritto.... `hole` e sempre fermo, ma `ball` si sposta.
 
-Facciamo ora un altro piccolo passo: facciamo stamapare anche la distanza tra i due centri usando 
+Facciamo ora un altro piccolo passo: stampiamo anche la distanza tra i due centri usando 
 
 ```python
 distance = Vector(*self.hole.center).distance(self.ball.center)
@@ -127,8 +126,8 @@ Ora potete verificare se la vostra palla entra in buca.
 
 ## Palla in Buca, la buca si sposta.
 
-Ora vogliamo che tutte le volte che la palla è in buca la buca viene spostata. Vogliamo spostarla in un posto a caso
-dello schermo di gioco. Per avere un numero a caso usiamo il solito `random.randint()` che prende il valore minimo
+Ora, tutte le volte che la palla finisce in buca,  vogliamo spostare la buca in un posto a caso
+dello schermo di gioco. Per avere un numero a caso usiamo `random.randint()` che prende il valore minimo
 e il valore massimo. Se noi spostiamo `x` e `y` della buca dobbiamo fare in mdo che non siamo mai troppo grandi da far 
 uscire la buca dal campo: Aggiungiamo quindi a `HoleGame` una funzione per piazzare la buca a caso
 

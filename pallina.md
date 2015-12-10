@@ -18,7 +18,7 @@ In ordine di importanza:
 
 Per ora ci interessano solo i file `hole.kv` e `main.py`:
 
-`main-py`
+`main.py`
 ```python
 from kivy.app import App
 from kivy.uix.widget import Widget
@@ -56,7 +56,7 @@ dal nome il finale `App` si mette tutto minuscolo e si aggiunge `.kv`, questo fi
 ## La Pallina
 
 Per aggingere la pallina dobbiamo inserire nel file `hole.kv` un nuovo personaggio, la pallina, e dire in che posizione
-mettrla nel gioco `HoleGame` e poi indicare come disegnarla
+metterla nel gioco `HoleGame` e poi indicare come disegnarla
 
 ```
 <HoleGame>:
@@ -66,7 +66,7 @@ mettrla nel gioco `HoleGame` e poi indicare come disegnarla
 ```
 
 Di questa pallina non abbiamo detto molto, solo di metterla in `HoleGame`, dove e la sua dimensione... ma a dire il vero
-non abbiamo detto ninete di come disegnarla. Il computer è abbastanza inteligente da capirlo da solo? Basta il nome 
+non abbiamo detto niente di come disegnarla. Il computer è abbastanza inteligente da capirlo da solo? Basta il nome 
 `Ball`?
 
 Proviamo: ... ops
@@ -85,7 +85,7 @@ class Ball(Widget):
     pass
 ```
 
-Nessun errore! ma della palla nemmeno l'ombra. E' il momemwnto di dirgli come è fatta una palla: in `hole.kv` 
+Nessun errore! ma della palla nemmeno l'ombra. E' il momento di dirgli come è fatta una palla: in `hole.kv` 
 aggiungiamo
 
 ```
@@ -104,14 +104,13 @@ Come mai è comparsa la pallina? Cosa abbiamo scritto per dirgli di disegnarla:
 
 * `canvas` in inglese vuol dire tela, dove stiamo disegnando
  * `Ellipse` Una ellisse
-  * `pos` dove mettere l'ellisse (angolo in alto a sinistra) dove si trova `self` (`Ball`)
+  * `pos` dove mettere l'ellisse (angolo in basso a sinistra) dove si trova `self` (`Ball`)
   * `size` dimesioni, stesse di `self` (`Ball`) che abbiamo definito in `HoleGame`
   
-Cosa sono `root`, `self` e `parent`:
+Cosa sono `root` e `self`:
 
 1. `root` è il contenitore di tutto, nel nostro caso `HoleGame`
 2. `self` è il componente che stiamo descrivendo
-3. `parent` è il componente che contiene il componente
 
 ## Spostare la pallina
 

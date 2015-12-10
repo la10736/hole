@@ -23,7 +23,7 @@ Quindi in `main.py` nella clase `Ball` aggiungiamo:
 
 ```
 
-Mentre in `HoleGame` cambiamo `on_touch_down()` per provarla mettendola al posto del campio di posizione:
+Mentre in `HoleGame` cambiamo `on_touch_down()` per provarla mettendola al posto del cambio di posizione:
 
 ```python
     def on_touch_down(self, touch):
@@ -32,9 +32,8 @@ Mentre in `HoleGame` cambiamo `on_touch_down()` per provarla mettendola al posto
             self.random_hole()
 ```
 
-Provate, e vedrete che la palla fa dei piccoli scattini, ma torna sempre al centro: provate a 
-**togliere** `on_touch_up()` da `Ball` e vedrete che funziona. Tutte le volte che rilasciate avevate detto
- di tornare al centro....
+Provate e vedrete che la palla fa dei piccoli scattini ma torna sempre al centro: **togliete** `on_touch_up()` da 
+`Ball` e vedrete che inizia a funzionare.
  
 ## La palla si muove da sola
 
@@ -158,7 +157,7 @@ class HoleGame(Widget):
             self.ball.vertical_bounce()
 ```
 
-... Ho solo spostato i controilli e i rimbalzi in `boundaries_bounce()` perchè `update()` iniziava a diventare 
+... Ho solo spostato i controlli e i rimbalzi in `boundaries_bounce()` perchè `update()` iniziava a diventare 
 affollato.
 
 ## Lo schermo diventa un Joystick

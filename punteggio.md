@@ -28,7 +28,7 @@ Aggiungiamo una scritta in alto con scritto `"pippo"`. Ci basta modificare solo 
 
 ## Creiamo il punteggio
 
-Per poter gestire automaticamente il collegamento tra il cambio di un valore e il suo effetto kivy fornisce le  
+Per poter gestire automaticamente il collegamento tra il cambio di un valore e il suo effetto kivy fornisce le 
 `Property`, in particolare per i numeri le `NumericProperty`. Queste proprietà possono essere usate nei personaggi
 per mantenere un valore e nei file `.kv` per usarlo con un effetto di aggiornamento automatico.
 
